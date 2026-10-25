@@ -114,6 +114,10 @@ cargo run --example basic
 
 滚动任一面板并调整窗口大小。Enter 定位到第 80 行，S 缩短或恢复数据，R 替换数据，Escape 取消等待中的定位。构建准备、测试和源码导航见[开发指南](docs/development.zh-CN.md)。
 
+## 生产实践
+
+[涟音 LianYin](https://lianyin.eztools.fun/zh-cn/) 是一款跨平台、跨设备音乐播放器，在实际产品中使用本库展示歌曲与播放队列，通过复用列表行承载长列表。产品介绍与版本发布见[涟音仓库](https://github.com/shengyusi-SYS/lianyin)。
+
 ## 许可证
 
 采用 `MIT OR Apache-2.0` 双许可证，你可以选择 [MIT](LICENSE-MIT) 或 [Apache-2.0](LICENSE-APACHE)。

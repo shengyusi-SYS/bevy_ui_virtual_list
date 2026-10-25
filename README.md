@@ -152,6 +152,10 @@ Scroll either panel and resize the window. Enter moves to row 80, S shortens or
 restores the data, R replaces it, and Escape cancels pending navigation.
 Build setup, tests and the source map are in the [developer guide](docs/development.md).
 
+## Production use
+
+[LianYin](https://lianyin.eztools.fun/en/) is a cross-platform, multi-device music player that uses this library in production for song lists and playback queues, reusing rows to display long lists. See the [LianYin repository](https://github.com/shengyusi-SYS/lianyin) for product information and releases.
+
 ## License
 
 Available under either [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE),
