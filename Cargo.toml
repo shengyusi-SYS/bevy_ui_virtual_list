@@ -1,0 +1,14 @@
+[package]
+name = "bevy_ui_virtual_list"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT"
+description = "Managed fixed-height pooled lists for Bevy UI"
+readme = "README.md"
+repository = "https://github.com/shengyusi-SYS/bevy_ui_virtual_list"
+keywords = ["bevy", "ui", "scroll", "virtual-list"]
+categories = ["gui", "game-development"]
+
+[dependencies]
+bevy = { version = "=0.19.1", default-features = false, features = ["ui", "bevy_ui_widgets"] }
