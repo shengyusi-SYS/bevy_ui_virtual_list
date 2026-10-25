@@ -154,4 +154,5 @@ Build setup, tests and the source map are in the [developer guide](docs/developm
 
 ## License
 
-[MIT](LICENSE).
+Available under either [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE),
+at your option (`MIT OR Apache-2.0`).

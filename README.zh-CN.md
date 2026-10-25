@@ -116,4 +116,4 @@ cargo run --example basic
 
 ## 许可证
 
-[MIT](LICENSE)。
+采用 `MIT OR Apache-2.0` 双许可证，你可以选择 [MIT](LICENSE-MIT) 或 [Apache-2.0](LICENSE-APACHE)。
