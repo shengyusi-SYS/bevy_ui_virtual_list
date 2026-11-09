@@ -8,12 +8,12 @@ fill them with text, images and actions.
 
 ## Install
 
-Requires Rust 1.95 or newer and Bevy 0.19.1.
+Requires Rust 1.97.1 or newer and Bevy 0.20.1.
 
 ```toml
 [dependencies]
-bevy = { version = "=0.19.1", default-features = false, features = ["ui", "bevy_ui_widgets"] }
-bevy_ui_virtual_list = { git = "https://github.com/shengyusi-SYS/bevy_ui_virtual_list.git", tag = "v0.1.0" }
+bevy = { version = "0.20.1", default-features = false, features = ["ui", "bevy_ui_widgets"] }
+bevy_ui_virtual_list = { git = "https://github.com/shengyusi-SYS/bevy_ui_virtual_list.git", branch = "main" }
 ```
 
 ## A list with 10,000 rows

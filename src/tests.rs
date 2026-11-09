@@ -29,6 +29,7 @@ fn pooled_layout_shrink_keeps_last_rows_bound_for_self_and_external_scroll() {
         let mut world = World::new();
         world.init_resource::<bevy::ui::ui_surface::UiSurface>();
         world.init_resource::<bevy::text::FontCx>();
+        world.init_resource::<bevy::text::RemSize>();
         let root = world
             .spawn((
                 Node {

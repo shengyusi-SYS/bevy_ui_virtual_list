@@ -119,7 +119,7 @@ fn pooled_list_range_update_system(
     q_ui_global_transform: Query<&UiGlobalTransform>,
     mut q_pooled_list_item: Query<(&mut PooledListItem, &mut Node, Option<Ref<ChildOf>>)>,
     mut focus: Option<bevy::prelude::ResMut<bevy::input_focus::InputFocus>>,
-    mut interactions: Query<&mut bevy::ui::Interaction>,
+    mut interactions: Query<&mut bevy::picking::hover::PickingInteraction>,
     mut removed_rows: RemovedComponents<PooledListItem>,
     mut commands: Commands,
 ) {

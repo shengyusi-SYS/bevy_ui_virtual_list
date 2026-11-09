@@ -1,3 +1,4 @@
+use bevy::picking::hover::PickingInteraction;
 use bevy::prelude::*;
 
 use crate::{
@@ -120,7 +121,7 @@ pub(crate) fn release_slot_interaction(
     slot: Entity,
     children: &Query<&Children>,
     focus: &mut Option<ResMut<bevy::input_focus::InputFocus>>,
-    interactions: &mut Query<&mut Interaction>,
+    interactions: &mut Query<&mut PickingInteraction>,
     commands: &mut Commands,
 ) {
     for entity in std::iter::once(slot).chain(children.iter_descendants(slot)) {
@@ -130,9 +131,9 @@ pub(crate) fn release_slot_interaction(
             focus.clear();
         }
         if let Ok(mut interaction) = interactions.get_mut(entity)
-            && *interaction != Interaction::None
+            && *interaction != PickingInteraction::None
         {
-            *interaction = Interaction::None;
+            *interaction = PickingInteraction::None;
         }
         commands.entity(entity).remove::<bevy::ui::Pressed>();
     }

@@ -1,7 +1,4 @@
-use bevy::{
-    picking::events::{Pointer, Scroll},
-    prelude::*,
-};
+use bevy::{picking::events::PointerScroll, prelude::*};
 
 use crate::{PooledList, PooledListBinding, calculate_item_top, clamped_pending_scroll_target, list_extent_is_ready};
 
@@ -20,7 +17,7 @@ pub struct CancelPooledListScroll {
 }
 
 /// Notify real input intent on a scroll owner, including input at a boundary.
-/// Native `Pointer<Scroll>` is handled automatically. Custom touch/scrollbar
+/// Native `PointerScroll` is handled automatically. Custom touch/scrollbar
 /// adapters should emit this event before applying their input.
 #[derive(Event, Clone, Copy, Debug)]
 pub struct PooledListScrollInput {
@@ -96,7 +93,7 @@ fn cancel_owner(
 }
 
 pub(crate) fn on_pointer_scroll(
-    event: On<Pointer<Scroll>>,
+    event: On<PointerScroll>,
     pending: Query<(Entity, &PooledListBinding), With<PendingPooledListScroll>>,
     mut commands: Commands,
 ) {

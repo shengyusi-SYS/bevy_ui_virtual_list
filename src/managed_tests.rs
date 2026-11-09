@@ -273,7 +273,7 @@ fn native_wheel_bubbling_cancels_a_waiting_request_at_the_viewport() {
         input::{mouse::MouseScrollUnit, touch::TouchPhase},
         picking::{
             backend::HitData,
-            events::{Pointer, Scroll},
+            events::{Pointer, PointerScroll},
             pointer::{Location, PointerId},
         },
         window::WindowRef,
@@ -288,21 +288,21 @@ fn native_wheel_bubbling_cancels_a_waiting_request_at_the_viewport() {
         index: 4,
     });
     app.update();
-    app.world_mut().trigger(Pointer::new(
-        PointerId::Mouse,
-        Location {
-            target: NormalizedRenderTarget::Window(WindowRef::Entity(window).normalize(None).unwrap()),
-            position: Vec2::ZERO,
-        },
-        Scroll {
-            unit: MouseScrollUnit::Pixel,
-            x: 0.0,
-            y: 10.0,
-            hit: HitData::new(window, 0.0, None, None),
-            phase: TouchPhase::Moved,
-        },
-        content,
-    ));
+    app.world_mut().trigger(PointerScroll {
+        pointer: Pointer::new(
+            PointerId::Mouse,
+            Location {
+                target: NormalizedRenderTarget::Window(WindowRef::Entity(window).normalize(None).unwrap()),
+                position: Vec2::ZERO,
+            },
+        ),
+        entity: content,
+        unit: MouseScrollUnit::Pixel,
+        x: 0.0,
+        y: 10.0,
+        hit: HitData::new(window, 0.0, None, None),
+        phase: TouchPhase::Moved,
+    });
     app.world_mut().get_mut::<ComputedNode>(list).unwrap().size.y = 200.0;
     app.update();
     assert_eq!(app.world().get::<ScrollPosition>(list).unwrap().y, 0.0);
@@ -351,6 +351,7 @@ fn offscreen_external_navigation_wakes_after_its_new_extent_reaches_layout() {
     app.add_plugins(PooledListPlugin)
         .init_resource::<bevy::ui::ui_surface::UiSurface>()
         .init_resource::<bevy::text::FontCx>()
+        .init_resource::<bevy::text::RemSize>()
         .add_systems(
             PostUpdate,
             bevy::ui::ui_layout_system.in_set(bevy::ui::UiSystems::Layout),
